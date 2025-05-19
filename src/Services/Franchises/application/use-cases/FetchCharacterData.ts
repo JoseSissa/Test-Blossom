@@ -1,10 +1,10 @@
-import { CharacterFranchisePort } from "../domain/ports/output/CharacterFranchisePort";
-import { SaveLoggerPort } from "../domain/ports/output/SaveLoggerPort";
+import { CharacterFranchisePort } from "../../domain/ports/output/CharacterFranchisePort";
+import { SaveLoggerPort } from "../../domain/ports/output/SaveLoggerPort";
 
-import { CharacterFranchise } from "../domain/entities/CharacterFranchise";
-import { Franchise } from "../domain/entities/Franchise";
-import { Metadata } from "../domain/entities/MetadataFranchise";
-import { LoggerFranchise } from "../domain/entities/LoggerFranchise";
+import { CharacterFranchise } from "../../domain/entities/CharacterFranchise";
+import { Franchise } from "../../domain/entities/Franchise";
+import { Metadata } from "../../domain/entities/MetadataFranchise";
+import { LoggerFranchise } from "../../domain/entities/LoggerFranchise";
 
 type Params = {
     franchise: Franchise;
