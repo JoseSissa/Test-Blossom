@@ -7,4 +7,8 @@ export class InMemoryLoggerAdapter implements SaveLoggerPort {
     async saveLogger(log: LoggerFranchise): Promise<void> {
         this.logs.push(log);
     }
+
+    async listCharacters(): Promise<LoggerFranchise[]> {
+        return this.logs;
+    }
 }

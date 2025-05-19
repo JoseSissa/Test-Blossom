@@ -7,8 +7,10 @@ import { DigimonApiAdapter } from "../external-api/DigimonApiAdapter";
 import { InMemoryLoggerAdapter } from "../persistance/InMemoryLoggerAdapter";
 
 import { fetchCharacterData } from "../../application/use-cases/FetchCharacterData";
+import { ListCharacterSaved } from "../../application/use-cases/ListCharacterSaved";
 
 import { ExpressCharacterController } from "../HTTP/express/controllers/ExpressCharacterController";
+import { ExpressListCharacterController } from "../HTTP/express/controllers/ExpressListCharacterController";
 
 
 // Adapters
@@ -35,6 +37,8 @@ const dynamicCharacterService = {
 
 // Use cases
 const fetchCharacter = new fetchCharacterData(dynamicCharacterService, loggerAdapter);
+const listCharacterSaved = new ListCharacterSaved(loggerAdapter);
 
 
 export const expressCharacterController = new ExpressCharacterController(fetchCharacter);
+export const expressListCharacterController = new ExpressListCharacterController(listCharacterSaved);
