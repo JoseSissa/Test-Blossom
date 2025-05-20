@@ -1,6 +1,6 @@
 export interface CharacterFranchise {
   name: string;
-  weight?: string;
-  powers: number;
+  weight?: number;
+  powers: string[];
   evolutions: string[];
 }
