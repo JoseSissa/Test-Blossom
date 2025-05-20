@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "dev": "npx ts-node ./src/Services/Franchises/infrastructure/HTTP/express/server.ts",
-    "dev:watch": "ts-node-dev --respawn --transpile-only src/Services/Franchises/infrastructure/HTTP/express/server.ts"
+    "dev:watch": "ts-node-dev --respawn --transpile-only src/Services/Franchises/infrastructure/HTTP/express/server.ts",
+    "start": "node --watch ./dist/src/Services/Franchises/infrastructure/HTTP/express/server.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

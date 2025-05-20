@@ -24,8 +24,16 @@ const pokeApiAdapter = new PokemonApiAdapter();
 const digiApiAdapter = new DigimonApiAdapter();
 
 // Logger
+// Adapter to save data in memory
 // const loggerAdapter = new InMemoryLoggerAdapter();
-export const loggerAdapter = new SQLiteLoggerAdapter();
+
+// Adapter to save data in SQLite
+const loggerAdapter = new SQLiteLoggerAdapter();
+// Function to create db
+async function init() {
+    await loggerAdapter.init();
+}
+init();
 
 // Handler dynamically
 const dynamicCharacterService = {

@@ -10,7 +10,7 @@ import { LoggerFranchise } from "../../domain/entities/LoggerFranchise";
 export class SQLiteLoggerAdapter implements ListCharacterSavedPort {
     private db!: Database;
 
-    constructor(private dbPath: string = path.resolve(__dirname, "SQLite-db/logs.db")) { }
+    constructor(private dbPath: string = path.resolve(__dirname, "logs.db")) { }
 
     async init(): Promise<void> {
         this.db = await open({
@@ -19,16 +19,16 @@ export class SQLiteLoggerAdapter implements ListCharacterSavedPort {
         });
 
         await this.db.exec(`
-      CREATE TABLE IF NOT EXISTS request_logs (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        franchise TEXT NOT NULL,
-        version TEXT NOT NULL,
-        metadata TEXT NOT NULL,
-        timestamp TEXT NOT NULL,
-        status TEXT NOT NULL,
-        errorMessage TEXT
-      );
-    `);
+            CREATE TABLE IF NOT EXISTS request_logs (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                franchise TEXT NOT NULL,
+                version TEXT NOT NULL,
+                metadata TEXT NOT NULL,
+                timestamp TEXT NOT NULL,
+                status TEXT NOT NULL,
+                errorMessage TEXT
+            );
+        `);
     }
 
     async saveLogger(log: LoggerFranchise): Promise<void> {
