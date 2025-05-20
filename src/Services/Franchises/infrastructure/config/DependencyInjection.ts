@@ -1,14 +1,20 @@
+// Entities
 import { Franchise } from "../../domain/entities/Franchise";
 import { Metadata } from "../../domain/entities/MetadataFranchise";
 
+// API adapters
 import { PokemonApiAdapter } from "../external-api/PokemonApiAdapter";
 import { DigimonApiAdapter } from "../external-api/DigimonApiAdapter";
 
+// Adapters to save data
 import { InMemoryLoggerAdapter } from "../persistance/InMemoryLoggerAdapter";
+import { SQLiteLoggerAdapter } from "../persistance/SQLiteLoggerAdapter";
 
+// Use cases
 import { fetchCharacterData } from "../../application/use-cases/FetchCharacterData";
 import { ListCharacterSaved } from "../../application/use-cases/ListCharacterSaved";
 
+// Controllers of the Server
 import { ExpressCharacterController } from "../HTTP/express/controllers/ExpressCharacterController";
 import { ExpressListCharacterController } from "../HTTP/express/controllers/ExpressListCharacterController";
 
@@ -18,7 +24,8 @@ const pokeApiAdapter = new PokemonApiAdapter();
 const digiApiAdapter = new DigimonApiAdapter();
 
 // Logger
-const loggerAdapter = new InMemoryLoggerAdapter();
+// const loggerAdapter = new InMemoryLoggerAdapter();
+export const loggerAdapter = new SQLiteLoggerAdapter();
 
 // Handler dynamically
 const dynamicCharacterService = {

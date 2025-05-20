@@ -1,6 +1,13 @@
 import * as express from "express";
 import expressRouter from "./router";
 
+import { loggerAdapter } from "../../config/DependencyInjection";
+
+async function init() {
+    await loggerAdapter.init();
+}
+init();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
