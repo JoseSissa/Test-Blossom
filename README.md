@@ -20,4 +20,4 @@ Case Backend Dev - Blossom
 - [✅] Unit tests
 - [✅] Dockerfile or Docker Compose setup
 - [✅] In-memory DB (e.g., SQLite or mocked)
-- [x] Rate limiting or retry logic for external APIs
+- [❌] Rate limiting or retry logic for external APIs
